@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Challenge Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="app-body">
+
+  <!-- ================= HOME SCREEN ================= -->
+  <section id="screen-home" class="screen active">
+    <div class="home-container">
+      <div class="home-header">
+        <!-- Logo hata diya gaya hai -->
+        <h1>Typing <span class="gradient-text">Challenge</span></h1>
+        <p>Do modes. Ek keyboard. Kitna tez ho aap?</p>
+      </div>
+
+      <div class="mode-selection">
+        <div class="mode-box">
+          <img src="assets/icon-bubbles.svg" alt="Bubbles" class="mode-icon" onerror="this.style.display='none'">
+          <h2>Bubbles</h2>
+          <p>Letters neeche se upar aate hain. Sahi key dabao, bubble phaad do. 6 miss = game over.</p>
+          <button class="play-btn" data-start="bubbles">▶ Play Bubbles</button>
+        </div>
+
+        <div class="mode-box">
+          <img src="assets/icon-magnet.svg" alt="KeyMagnet" class="mode-icon" onerror="this.style.display='none'">
+          <h2>KeyMagnet</h2>
+          <p>Target letter ko keyboard par dhoondein aur sahi key dabayein. Accuracy aur speed barhayein.</p>
+          <button class="play-btn" data-start="keymagnet">▶ Play KeyMagnet</button>
+        </div>
+      </div>
+
+      <div class="difficulty-selector">
+        <span>Select Difficulty:</span>
+        <div class="diff-options">
+          <button class="diff-btn active" data-difficulty="easy">Easy</button>
+          <button class="diff-btn" data-difficulty="medium">Medium</button>
+          <button class="diff-btn" data-difficulty="hard">Hard</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUBBLES SCREEN ================= -->
+  <section id="screen-bubbles" class="screen">
+    <div class="game-hud">
+      <div class="hud-stat"><span>Score</span><strong id="bub-score">0</strong></div>
+      <div class="hud-stat"><span>Lives</span><strong id="bub-lives">6</strong></div>
+      <div class="hud-stat"><span>Misses</span><strong id="bub-misses">0</strong></div>
+      <div class="hud-stat"><span>Level</span><strong id="bub-level">1</strong></div>
+      <div class="hud-stat"><span>Difficulty</span><strong id="bub-diff">EASY</strong></div>
+    </div>
+
+    <div id="bubble-area" class="bubble-area">
+      <div id="bubble-feedback" class="feedback"></div>
+    </div>
+
+    <div class="game-controls">
+      <button class="ctrl-btn" id="bub-restart">↻ Restart</button>
+      <button class="ctrl-btn" id="bub-reset">✕ Reset</button>
+      <button class="ctrl-btn danger" id="bub-home">⌂ Home</button>
+    </div>
+  </section>
+
+  <!-- ================= KEYMAGNET SCREEN ================= -->
+  <section id="screen-keymagnet" class="screen">
+    <div class="game-hud">
+      <div class="hud-stat"><span>Score</span><strong id="mag-score">0</strong></div>
+      <div class="hud-stat"><span>Progress</span><strong id="mag-progress">0 / 15</strong></div>
+      <div class="hud-stat"><span>Accuracy</span><strong id="mag-acc">100%</strong></div>
+      <div class="hud-stat"><span>Correct</span><strong id="mag-correct">0</strong></div>
+      <div class="hud-stat"><span>Wrong</span><strong id="mag-wrong">0</strong></div>
+    </div>
+
+    <div class="magnet-stage">
+      <p class="target-label">Press this key</p>
+      <div id="magnet-target" class="magnet-target">-</div>
+      <div class="timer-track">
+        <div id="magnet-bar" class="timer-fill"></div>
+      </div>
+      <div id="magnet-feedback" class="feedback feedback-static"></div>
+    </div>
+
+    <div id="keyboard" class="keyboard-panel"></div>
+
+    <div class="game-controls">
+      <select id="mag-keyset" class="keyset-select">
+        <option value="home">Home Row (A S D F J K L)</option>
+        <option value="homeTop">Home + Top Row</option>
+        <option value="all">All Letters</option>
+      </select>
+      <button class="ctrl-btn" id="mag-restart">↻ Restart</button>
+      <button class="ctrl-btn" id="mag-reset">✕ Reset</button>
+      <button class="ctrl-btn danger" id="mag-home">⌂ Home</button>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS SCREEN ================= -->
+  <section id="screen-results" class="screen">
+    <div class="results-container">
+      <h2 id="res-title">Game Over</h2>
+      <p id="res-subtitle">Bubbles top tak pohanch gaye</p>
+      
+      <div class="final-score-box">
+        <span>Final Score</span>
+        <strong id="res-score">0</strong>
+      </div>
+
+      <div id="res-stats" class="stats-list"></div>
+
+      <div class="game-controls">
+        <button class="ctrl-btn primary" id="res-again">▶ Play Again</button>
+        <button class="ctrl-btn" id="res-home">⌂ Home</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

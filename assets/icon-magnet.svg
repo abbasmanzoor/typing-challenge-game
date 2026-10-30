@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="metal" gradientUnits="userSpaceOnUse" x1="275" y1="0" x2="749" y2="0">
+      <stop offset="0" stop-color="#3a3f58"/>
+      <stop offset="0.12" stop-color="#c9d2ea"/>
+      <stop offset="0.28" stop-color="#6b7394"/>
+      <stop offset="0.5" stop-color="#2b2f45"/>
+      <stop offset="0.72" stop-color="#6b7394"/>
+      <stop offset="0.88" stop-color="#c9d2ea"/>
+      <stop offset="1" stop-color="#3a3f58"/>
+    </linearGradient>
+    <linearGradient id="neon" gradientUnits="userSpaceOnUse" x1="240" y1="0" x2="784" y2="0">
+      <stop offset="0" stop-color="#22e5ff"/>
+      <stop offset="1" stop-color="#b24bff"/>
+    </linearGradient>
+    <linearGradient id="tipL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8ffff"/>
+      <stop offset="0.25" stop-color="#22e5ff"/>
+      <stop offset="1" stop-color="#0a7f99"/>
+    </linearGradient>
+    <linearGradient id="tipR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d8ff"/>
+      <stop offset="0.25" stop-color="#b24bff"/>
+      <stop offset="1" stop-color="#5a1b9a"/>
+    </linearGradient>
+    <radialGradient id="aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.3" stop-color="#7a3cff" stop-opacity="0.35"/>
+      <stop offset="0.65" stop-color="#22a5ff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="floor" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7a3cff" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#7a3cff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="b4"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="b14"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="b30"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#000"/>
+  <circle cx="512" cy="520" r="480" fill="url(#aura)"/>
+  <ellipse cx="512" cy="870" rx="270" ry="36" fill="url(#floor)" filter="url(#b14)"/>
+
+  <!-- neon glow behind body -->
+  <path d="M340 300 V520 A172 172 0 0 0 684 520 V300" fill="none" stroke="url(#neon)" stroke-width="170" stroke-linecap="butt" opacity="0.55" filter="url(#b30)"/>
+
+  <!-- neon outline -->
+  <path d="M340 300 V520 A172 172 0 0 0 684 520 V300" fill="none" stroke="url(#neon)" stroke-width="146" stroke-linecap="butt" filter="url(#b4)" opacity="0.9"/>
+
+  <!-- metallic body -->
+  <path d="M340 300 V520 A172 172 0 0 0 684 520 V300" fill="none" stroke="url(#metal)" stroke-width="130" stroke-linecap="butt"/>
+
+  <!-- grooves -->
+  <g stroke="#0a0b14" stroke-width="7" opacity="0.8">
+    <line x1="275" y1="352" x2="405" y2="352"/>
+    <line x1="619" y1="352" x2="749" y2="352"/>
+    <line x1="275" y1="372" x2="405" y2="372" stroke="#8d97bd" stroke-width="2" opacity="0.7"/>
+    <line x1="619" y1="372" x2="749" y2="372" stroke="#8d97bd" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <!-- specular highlight -->
+  <path d="M308 340 V520 A172 172 0 0 0 652 520 V340" fill="none" stroke="#fff" stroke-width="12" opacity="0.38" stroke-linecap="round" filter="url(#b4)"/>
+
+  <!-- glowing pole tips -->
+  <rect x="275" y="200" width="130" height="100" rx="8" fill="url(#tipL)"/>
+  <rect x="619" y="200" width="130" height="100" rx="8" fill="url(#tipR)"/>
+  <rect x="285" y="206" width="110" height="14" rx="6" fill="#fff" opacity="0.55" filter="url(#b4)"/>
+  <rect x="629" y="206" width="110" height="14" rx="6" fill="#fff" opacity="0.55" filter="url(#b4)"/>
+  <rect x="275" y="200" width="130" height="100" rx="8" fill="none" stroke="#22e5ff" stroke-width="3" filter="url(#b4)"/>
+  <rect x="619" y="200" width="130" height="100" rx="8" fill="none" stroke="#b24bff" stroke-width="3" filter="url(#b4)"/>
+
+  <!-- energy field arcs between poles -->
+  <g fill="none" stroke="url(#neon)" stroke-linecap="round">
+    <path d="M340 190 Q512 20 684 190" stroke-width="10" opacity="0.6" filter="url(#b14)"/>
+    <path d="M340 190 Q512 20 684 190" stroke-width="4"/>
+    <path d="M360 180 Q512 80 664 180" stroke-width="3" opacity="0.85"/>
+    <path d="M320 195 Q512 -30 704 195" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="#fff" filter="url(#b4)" opacity="0.9">
+    <circle cx="512" cy="64" r="5"/><circle cx="430" cy="110" r="3"/><circle cx="600" cy="106" r="3"/>
+    <circle cx="250" cy="170" r="3"/><circle cx="780" cy="165" r="3"/>
+  </g>
+</svg>
